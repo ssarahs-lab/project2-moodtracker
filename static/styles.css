@@ -1,0 +1,22 @@
+input {
+    display: block;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.body {
+    display: grid;
+    place-items: center;
+}
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    padding: 20px
+}
