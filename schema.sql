@@ -9,13 +9,15 @@ user_id SERIAL PRIMARY KEY,
 username VARCHAR(255),
 email VARCHAR(255),
 password_hash VARCHAR(255)
-)
+);
 
 CREATE TABLE moods_diet_sleep (
 id SERIAL PRIMARY KEY,
+name VARCHAR(255),
 mood_rating INTEGER,
-sleep_rating INTEGER,
-diet_rating INTEGER
+diet_rating INTEGER,
+sleep_rating INTEGER, 
+created_on TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE diet (
@@ -32,4 +34,4 @@ emotions VARCHAR(255)
 
 
 -- test seed
-INSERT into moods_diet_sleep (id, mood_rating, sleep_rating, diet_rating) VALUES(1,5, 6, 4);
+INSERT into moods_diet_sleep (name, mood_rating, sleep_rating, diet_rating) VALUES('Sarah',5, 6, 4);
