@@ -2,12 +2,11 @@
 
     {% block content %}
     
-    <div><h1>Mood tracker</h1></div>
 
-    <div class="form"> 
+    <div class="moodform"> 
         <form method ="POST" action="/add_mood_items">
             <ul>
-            <li>Name:  <input name="name" type="text" > </li>
+            <h2>How are you feeling?</h2>
             <li>Mood rating <input name="mood_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"> <output>5</output></li>
             
             <li>Sleep rating <input name="sleep_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"> <output>5</output></li>
@@ -31,14 +30,15 @@
 
     <div class="moodlog">
 
+        <h2>Mood log</h2>
 
         {% for i in range(length) %}
         
-        <p>Name: {{names[i]}}</p>
+        <p>Date: {{created_on[i]}}</p>
         <p>Mood rating: {{mood_rating[i]}} </p>
         <p>Sleep rating: {{sleep_rating[i]}} </p>
         <p>Diet rating: {{diet_rating[i]}} </p>
-        <p>Created on: {{created_on[i]}}</p>
+       
 
         {% endfor %}
 

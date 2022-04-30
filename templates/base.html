@@ -10,7 +10,21 @@
 </head>
 <body>
     <header><nav>
-        
+        <div class="header">
+        <h1>Mood Tracker</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            
+            {% if username %}
+
+            <p>Welcome {{username}} </p>
+
+            <a href="/login">Login/Signup</a>
+
+            {% endif %}
+            <li><a href="#">Mood history</a></li>
+        </div>
+        </ul>
 
     </nav></header>
 

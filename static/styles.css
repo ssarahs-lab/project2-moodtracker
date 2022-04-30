@@ -9,7 +9,9 @@ ul {
 
 .body {
     display: grid;
-    place-items: center;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    border: 2px solid tomato;
 }
 
 body {
@@ -17,6 +19,30 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-li {
-    padding: 20px
+.header > ul > li {
+    padding: 26px
+}
+
+.header > ul {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+
+}
+
+
+.moodform {
+    border: 2px solid rebeccapurple;
+}
+
+.moodlog {
+    border: 2px solid saddlebrown
+}
+
+.header {
+    display: flex;
+    text-align: left;
 }

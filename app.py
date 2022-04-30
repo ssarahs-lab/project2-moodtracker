@@ -1,7 +1,7 @@
 from time import sleep
 from venv import create
 import psycopg2
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 import os
 
 DATABASE_URL = os.environ.get('DATABASE_URL', 'dbname=project2db')
@@ -18,14 +18,12 @@ def index():
     cur = conn.cursor()
     cur.execute('SELECT id, name, mood_rating, diet_rating, sleep_rating, created_on::timestamp FROM moods_diet_sleep;')
     results = cur.fetchall()
-    
-    print(results)
+
     names = []
     mood_rating = []
     diet_rating = []
     sleep_rating = []
     created_on = []
-    id = []
 
     for column in results: 
 
@@ -37,9 +35,6 @@ def index():
         diet_rating.append(column[3])
         sleep_rating.append(column[4])
         created_on.append(column[5])
-       
-    
-    print(f"names{names} +moodrating{mood_rating} + dietrating{diet_rating} + sleeprating{sleep_rating} +createdon{created_on}")
 
     length = len(names)
 
@@ -53,21 +48,66 @@ def add_mood_items():
     mood_rating = request.form.get("mood_rating")
     diet_rating = request.form.get("diet_rating")
     sleep_rating = request.form.get("sleep_rating")
-    
-    
-
-    print(f'{name}+{mood_rating}+{diet_rating}+{sleep_rating}')
-
+   
     conn = psycopg2.connect('dbname = moodtracker')
     cur = conn.cursor()
     cur.execute('INSERT INTO moods_diet_sleep(name, mood_rating, diet_rating, sleep_rating) VALUES(%s,%s, %s, %s)', [name, mood_rating, diet_rating, sleep_rating])
 
     conn.commit()
     conn.close()
-
-
-
+    
     return redirect('/')
+
+@app.route('/login')
+def login():
+    
+    return render_template('login.html', username = session.get('username'))
+
+
+
+@app.route('/login', methods=['POST'])
+def login_action():
+    email = request.form.get('email')
+    print(email)
+
+    emails_fromsql = []
+    usernames_fromsql = []
+
+    conn = psycopg2.connect('dbname = moodtracker')
+    cur = conn.cursor()
+    cur.execute('SELECT username, email FROM users;')
+    results_fetch = cur.fetchall()
+
+    for column in results_fetch: 
+
+        emails_fromsql.append(column[1])
+        usernames_fromsql.append(column[0])
+   
+    print(emails_fromsql)
+
+    # username = usernames_fromsql
+
+    cur.execute(f"SELECT name FROM users WHERE email like '{email}' ;")
+    username = cur.fetchone()
+
+    print(username[0])
+
+    if email in emails_fromsql:
+
+        session['email'] = email
+        session['username'] = username[0]
+
+        # Check if this is a valid email (in the database)
+        # If valid - set the user ID in session and redirect
+        
+        return redirect('/')
+
+   
+        # If not, redirect back to the login page.
+    else:
+
+        return redirect('/login') 
+
 
 
 
