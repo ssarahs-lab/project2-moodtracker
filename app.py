@@ -38,7 +38,7 @@ def index():
 
     length = len(names)
 
-    return render_template('index.html', names = names, mood_rating = mood_rating, diet_rating = diet_rating, sleep_rating= sleep_rating, length = length, created_on = created_on)
+    return render_template('index.html', names = names, mood_rating = mood_rating, diet_rating = diet_rating, sleep_rating= sleep_rating, length = length, created_on = created_on, username = session.get('username'))
 
 
 @app.route('/add_mood_items',  methods=['POST'])
@@ -55,7 +55,7 @@ def add_mood_items():
 
     conn.commit()
     conn.close()
-    
+
     return redirect('/')
 
 @app.route('/login')
@@ -67,15 +67,16 @@ def login():
 
 @app.route('/login', methods=['POST'])
 def login_action():
-    email = request.form.get('email')
-    print(email)
+    username = request.form.get('username')
+    password = request.form.get('password')
+    
 
     emails_fromsql = []
     usernames_fromsql = []
 
     conn = psycopg2.connect('dbname = moodtracker')
     cur = conn.cursor()
-    cur.execute('SELECT username, email FROM users;')
+    cur.execute('SELECT username, email, password_hash FROM users;')
     results_fetch = cur.fetchall()
 
     for column in results_fetch: 
@@ -106,7 +107,7 @@ def login_action():
         # If not, redirect back to the login page.
     else:
 
-        return redirect('/login') 
+        return redirect('/login', ) 
 
 
 
