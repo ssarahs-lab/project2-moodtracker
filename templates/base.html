@@ -7,31 +7,32 @@
     <link rel="stylesheet" href="/static/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Mood tracker</title>
+    <link rel="shortcut icon" type="image/jpg" href="/static/light-bulb.png"/>
 </head>
-<body>
+<body >
     <header><nav>
         <div class="header">
         <h1>Mood Tracker</h1>
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/" class="nav-bar-link"><img class="icon" src="static/home.svg">Home</a></li>
             
-            {% if username %}
+        
 
-            <p>Welcome {{username}} </p>
+            
 
-            <a href="/login">Login/Signup</a>
+          <li>  <a href="/login"><img class="icon" src="static/sign-in.svg">Login/Signup</a></li>
 
-            {% endif %}
-            <li><a href="#">Mood history</a></li>
+         
+            <li><a href="/moodlog"><img class="icon" src="static/time-past.svg">Mood history</a></li>
         </div>
         </ul>
 
     </nav></header>
 
-    <div class="body">
+    <div class="body" >
 
     {% block content %}{% endblock %}
-
+    <a href="https://www.flaticon.com/free-icons/brain" title="brain icons">Brain icons created by Freepik - Flaticon</a>
 </div>
 </body>
 </html>

@@ -10,13 +10,17 @@ ul {
 .body {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-    border: 2px solid tomato;
+    
+   
 }
 
 body {
-
-    font-family: 'Roboto', sans-serif;
+    
+    font-family: 'Roboto', sans-serif; 
+    margin-left: 40px;
+    margin-right: 40px;
+  
+        
 }
 
 .header > ul > li {
@@ -35,14 +39,55 @@ body {
 
 
 .moodform {
-    border: 2px solid rebeccapurple;
+  
+    border: 1px solid black;
+    padding-top: 15px;
+    border-radius: 8px;
+   
+    width: 305px;
 }
 
 .moodlog {
-    border: 2px solid saddlebrown
+   
+    padding-left: 40px;
+    padding-top: 13px;
+    border-radius: 10px;
+    
 }
 
 .header {
     display: flex;
     text-align: left;
+    text: white
+  
 }
+
+.signup_input {
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.loginparentdiv {
+    display: grid;
+    place-items: center;
+}
+
+.icon {
+    width: 20px;
+    padding-right: 5px;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+
+.header > ul> li> a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.header > ul> li> a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+/* fade in on page load */
+

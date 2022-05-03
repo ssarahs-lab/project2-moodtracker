@@ -2,21 +2,29 @@
 
     {% block content %}
 
+    <div class="loginparentdiv">
+    <div class="loginform">
     <h2>Login</h2>
+   
+
     <form action="/login" method="POST">
-        Username: <input type="text" name="name">
-        Password: <input type="password" name="password">
-        <input type="submit" value="Log in">
+        Email: <input class="signup_input" type="text" name="email">
+        Password: <input class="signup_input" type="password" name="password">
+        <input type="submit" class="signup_input" value="Log in">
 
     </form>
+</div>   
 
+<div class="signup_form">
     <h2>Sign up</h2>
 
     <form>
-        Username: <input type="text" name="name">
-        Email address: <input type="text" name="name">
-        Password: <input type="password" name="password">
-
+        Username: <input type="text" class="signup_input" name="signup_username">
+        Email address: <input type="text" class="signup_input" name="signup_email">
+        Password: <input type="password" class="signup_input" name="signup_password">
+        <input type="submit" class="signup_input" value="Sign up">
     </form>
+</div>
+</div>
 
     {% endblock %}

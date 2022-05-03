@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+<div class="moodlog">
+
+    <h2>Mood log</h2>
+
+    {% for i in range(length) %}
+    
+    <p>Date logged: {{created_on[i]}}</p>
+    <p>Mood rating: {{mood_rating[i]}} </p>
+    <p>Sleep rating: {{sleep_rating[i]}} </p>
+    <p>Diet rating: {{diet_rating[i]}} </p>
+   
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
