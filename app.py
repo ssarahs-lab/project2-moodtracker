@@ -59,6 +59,10 @@ def add_mood_items():
     mood_rating = request.form.get("mood_rating")
     diet_rating = request.form.get("diet_rating")
     sleep_rating = request.form.get("sleep_rating")
+
+    emotions = request.form.getlist("emotions")
+
+    print(emotions)
    
     DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_CRIMSON_URL','dbname = moodtracker')
 
@@ -84,39 +88,29 @@ def login_action():
     email= request.form.get('email')
     password = request.form.get('password')
     
-
-
-    emails_fromsql = []
-    usernames_fromsql = []
-
-    
     DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_CRIMSON_URL','dbname = moodtracker')
 
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
     cur.execute('SELECT username, email, password_hash FROM users WHERE email = %s', [email])
+    results = cur.fetchone()
+    print(f'results {results}')
 
-    results_fetch = cur.fetchall()
+    password_hash = results[2]
+    
+    valid = bcrypt.checkpw(password.encode(), password_hash.encode())
 
-    print(results_fetch)
+    print(f'valid {valid}')
+    # if email is not in the results, return to login
 
-
-    if email in emails_fromsql:
-
-        session['email'] = email
-        session['username'] = username
+    if valid == True :
         
 
-        # Check if this is a valid email (in the database)
-        # If valid - set the user ID in session and redirect
-        
-        return redirect('/')
-
-   
-        # If not, redirect back to the login page.
+        return redirect('/moodlog')
+    
     else:
-
-        return redirect('/login', ) 
+    
+        return redirect('/login')
 
 @app.route('/sign_up', methods = ['POST'])
 def signup():

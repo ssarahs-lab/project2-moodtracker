@@ -89,5 +89,7 @@ body {
     color: black;
 }
 
-/* fade in on page load */
-
+label {
+    display: flex;
+    align-items: center;
+}

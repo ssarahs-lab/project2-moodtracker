@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS moods_diet_sleep;
-DROP TABLE IF EXISTS user_profiles;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS diet;
 DROP TABLE IF EXISTS moods;
 
@@ -41,5 +41,5 @@ INSERT INTO moods_diet_sleep (name, mood_rating, sleep_rating, diet_rating) VALU
 
 INSERT INTO users (email, username, password_hash) VALUES ('bob@example.com', 'BobExample', '$2b$12$TpvX8HcLDBfx.LOaNefsI.hBFars/nSddrxqcYDxb5VDQfughklBa');
 INSERT INTO users (email, username, password_hash) VALUES ('sally@example.com', 'SallyExample', '$2b$12$d8iYmpmksEHmPqnCVDxGC.ZDID3KkS6jR8uH.fHewhOYm7UXJaJv6');
-INSERT INTO users (email, username, password_hash) VALUES ('sarah@example.com', 'SarahS', '$2b$12$9g26teeYwsnDNQg.5D4EAOhT9uWneeAid.O1ppRSQLJVeUcZAUVPC' );
+INSERT INTO users (email, username, password_hash) VALUES ('sarah@example.com', 'SarahS', '$2b$12$.Nom1w23KL6FV4oDbLNiYebldiJrH4PC3OiNLNt2mhj0jKKYymdh6' );
 INSERT INTO users (email, username, password_hash) VALUES ('jenny@example.com', 'JennyJ', '$2b$12$G1jYAe3jBCJyQQ74HnvL0enP6KkWRfMUZRoLRpBbPLwlmN.qKru6a');
