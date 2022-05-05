@@ -9,25 +9,32 @@
     <title>Mood tracker</title>
     <link rel="shortcut icon" type="image/jpg" href="/static/light-bulb.png"/>
     <script defer src="static/script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body >
     <header><nav>
-        <div class="header">
         <h1>Mood Tracker</h1>
+        <div class="header">
+       
         <ul>
             <li><a href="/" class="nav-bar-link"><img class="icon" src="static/home.svg">Home</a></li>
-            
-        
-
-            
-
-          <li>  <a href="/login"><img class="icon" src="static/sign-in.svg">Login/Signup</a></li>
+          
+            <li><a href="/moodlog"><img class="icon" src="static/time-past.svg">Mood history</a></li>
 
          
-            <li><a href="/moodlog"><img class="icon" src="static/time-past.svg">Mood history</a></li>
-        </div>
-        </ul>
+           
 
+            {% if username %}
+          <li id="welcome">  Welcome {{username}}</li>
+          <li>  <a href="/logout" class="login" ><img class="icon" src="static/logout.png">Logout</a></li>
+
+            {%elif username == None %}
+          <li>  <a href="/login" class="login" ><img class="icon" src="static/sign-in.svg">Login/Signup</a></li>
+            {% endif %}
+         
+        
+        </ul>
+    </div>
     </nav></header>
 
     <div class="body" >

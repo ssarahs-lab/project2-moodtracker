@@ -16,12 +16,20 @@ app.config['SECRET_KEY'] = SECRET_KEY
 @app.route('/moodlog')
 def moodlog():
      # connection variable to cnnect to database
+
+    username = session.get('username')
     
     DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_CRIMSON_URL','dbname = moodtracker')
 
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
-    cur.execute('SELECT id, name, mood_rating, diet_rating, sleep_rating, created_on::timestamp FROM moods_diet_sleep ORDER BY created_on DESC;')
+
+    cur.execute('SELECT user_id FROM users where username = %s', [username])
+    user_id = cur.fetchone()
+
+    print(f'userid {user_id}')
+
+    cur.execute('SELECT  mood_rating, diet_rating, sleep_rating, created_on::timestamp FROM moods_diet_sleep where id = %s ORDER BY created_on DESC;', [user_id])
     results = cur.fetchall()
 
     names = []
@@ -30,16 +38,14 @@ def moodlog():
     sleep_rating = []
     created_on = []
 
+  
+
     for column in results: 
 
-        # column 1 is names
-
-
-        names.append(column[1])
-        mood_rating.append(column[2])
-        diet_rating.append(column[3])
-        sleep_rating.append(column[4])
-        created_on.append(column[5])
+        mood_rating.append(column[0])
+        diet_rating.append(column[1])
+        sleep_rating.append(column[2])
+        created_on.append(column[3])
 
     length = len(names)
 
@@ -55,7 +61,23 @@ def index():
 @app.route('/add_mood_items',  methods=['POST'])
 def add_mood_items():
 
-    name = request.form.get("name")
+    username = session.get('username')
+
+    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_CRIMSON_URL','dbname = moodtracker')
+
+    conn = psycopg2.connect(DATABASE_URL)
+    cur = conn.cursor()
+    cur.execute('SELECT user_id FROM users WHERE username = %s', [username])
+    results = cur.fetchall()
+
+    print(f'line 65 results {results}')
+
+    cur.execute('SELECT user_id FROM users where username = %s', [username])
+    user_id = cur.fetchone()
+
+    print(f'userid {user_id}')
+
+
     mood_rating = request.form.get("mood_rating")
     diet_rating = request.form.get("diet_rating")
     sleep_rating = request.form.get("sleep_rating")
@@ -68,7 +90,12 @@ def add_mood_items():
 
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
-    cur.execute('INSERT INTO moods_diet_sleep(name, mood_rating, diet_rating, sleep_rating) VALUES(%s,%s, %s, %s)', [name, mood_rating, diet_rating, sleep_rating])
+    cur.execute('INSERT INTO moods_diet_sleep(mood_rating, diet_rating, sleep_rating) VALUES(%s, %s, %s)', [ mood_rating, diet_rating, sleep_rating])
+
+    conn.commit()
+    
+
+    cur.execute('INSERT INTO moods(mood_rating, emotions) VALUES(%s, %s)', [mood_rating, emotions])
 
     conn.commit()
     conn.close()
@@ -80,7 +107,7 @@ def login():
     
     return render_template('login.html', username = session.get('username'))
 
-
+# login route
 
 @app.route('/login', methods=['POST'])
 def login_action():
@@ -96,21 +123,31 @@ def login_action():
     results = cur.fetchone()
     print(f'results {results}')
 
+    username = results[0]
+
     password_hash = results[2]
     
     valid = bcrypt.checkpw(password.encode(), password_hash.encode())
 
     print(f'valid {valid}')
     # if email is not in the results, return to login
+    if results == None:
 
-    if valid == True :
-        
+
+        invalid_message = "Invalid username or password, please try again."
+        return render_template ('/login', invalid_message = invalid_message)
+
+    elif valid == True :
+
+        session['username'] = username
 
         return redirect('/moodlog')
     
     else:
     
         return redirect('/login')
+
+# sign up route
 
 @app.route('/sign_up', methods = ['POST'])
 def signup():
@@ -126,11 +163,24 @@ def signup():
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
 
-    cur.execute('INSERT INTO users (username, email, password_hash VALUES (%s, %s, %s', [username, email, password_hashed])
+    cur.execute('INSERT INTO users (username, email, password_hash) VALUES (%s, %s, %s)', [username, email, password_hashed])
 
     conn.commit()
+    conn.close()
 
     return redirect('/')
+
+# logout route - clears the session cookies from page and redirects
+
+@app.route('/logout')
+def logout():
+
+    session.clear()
+
+    return redirect('/')
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

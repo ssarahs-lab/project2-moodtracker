@@ -58,7 +58,8 @@ body {
 .header {
     display: flex;
     text-align: left;
-    text: white
+    text: white;
+    align-items: baseline;
   
 }
 
@@ -92,4 +93,8 @@ body {
 label {
     display: flex;
     align-items: center;
+}
+
+#welcome {
+    margin-top: 5px;
 }
