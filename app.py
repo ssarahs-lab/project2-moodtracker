@@ -63,15 +63,18 @@ def moodlog():
 
     cur.execute("SELECT  trim(emotions::text, '{{}}') FROM moods where id = %s ORDER BY created_on DESC;", [user_id])
     mood_results = cur.fetchall()
-    emotions = []
+    emotions_fromsql = []
 
     for moodcolumn in mood_results:
 
-        emotions.append(moodcolumn[0])
+        emotions_fromsql.append(moodcolumn[0])
+
+    
+
+    emotions = [feeling.replace('"',' ') for feeling in emotions_fromsql]
 
     print(emotions)
 
-    
     return render_template('moodlog.html', names = names, mood_rating = mood_rating, diet_rating = diet_rating, sleep_rating = sleep_rating, length = length, created_on = created_on,emotions = emotions, username = session.get('username'))
 
 @app.route('/')

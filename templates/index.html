@@ -13,16 +13,12 @@
             
             <li>Sleep rating <input name="sleep_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"required> <output>5</output></li>
             
-   
+   </ul>
+</div>
+   <div class="emotionsform">
+        <ul>
             <li><h4>Tick all emotions that apply:</h4></li>
-                <!-- <dialog id="emotionWheel">
-
-                    <img src="static/emotion_wheel.jpeg">
-                    Image source <a href="https://medium.com/age-of-awareness/how-to-use-wheel-of-emotions-to-express-better-emotions-8037255aa661">here</a> 
-                    <button id="hide">Close</button>  
-                </dialog>  
-                <button id="show" onclick="dialog()">?</button>   -->
-              <div class="container"> 
+             
                 <h3>Sad</h3>
             <div id="listOutput"></div>
             <h3>Fear</h3>
@@ -36,21 +32,28 @@
             <h3>Peaceful</h3>
             <div id="listOutput5"></div>
 
-        </div>
+              </ul>
+
+            </div> 
+
+      
                 
-           
-           
-            <li>Future events elevating mood <input type="text" name= "future_excitement"></li>
-            <li>Future events lowering mood <input type="text" name = "future_stressors "></li>
+           <div class="eventscard">
+           <ul>
             <li>Past activities elevating mood now <input type="text" name = "past_excitement"></li>
-            <li>Past stressors lowering mood now <input type="text" name = "past_stressors"></li> -->
+            <li>Past stressors lowering mood now <input type="text" name = "past_stressors"></li>
            
-            <li>Other<input type="text" name="other_comments"></li>
+            <li>Future events elevating mood <input type="text" name= "future_excitement" width="300px"></li>
+            <li>Future events lowering mood <input type="text" name = "future_stressors "></li>
+            <li>What did you eat today? <input type="text" name = "future_stressors "></li>
+            
+            <li>Additional comments<input type="text" name="other_comments"></li>
 
             
-            <input type="submit" name="submit">
+            <input type="submit" name="submit" id="submitbutton">
 
             </ul>
+        </div>
         </form>
     </div>
 

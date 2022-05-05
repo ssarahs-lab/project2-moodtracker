@@ -5,3 +5,12 @@
 
 - add, commit and push
 
+Connect database with Heroku
+heroku psql
+
+reset database
+heroku pg:reset
+
+copy local database to heroku
+heroku pg:push moodtracker DATABASE_URL
+

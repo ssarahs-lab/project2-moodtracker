@@ -5,6 +5,7 @@ input {
 
 ul {
     list-style-type: none;
+  
 }
 
 .body {
@@ -40,7 +41,7 @@ body {
 
 .moodform {
   
-    border: 1px solid black;
+  
     padding-top: 15px;
     border-radius: 8px;
    
@@ -90,10 +91,6 @@ body {
     color: black;
 }
 
-label {
-    display: flex;
-    align-items: center;
-}
 
 #welcome {
     margin-top: 5px;
@@ -109,4 +106,51 @@ label {
 
 .container {
     display: grid;
+}
+
+.emotionsform {
+    min-width: 305px;
+    width: 25vw;
+   
+}
+
+#listOutput {
+   
+    width: 25vw;
+    min-width: 305px;
+}
+#listOutput1 {
+   
+    width: 25vw;
+    min-width: 305px;
+}
+#listOutput2 {
+   
+    width: 25vw;
+    min-width: 305px;
+}
+#listOutput3 {
+    
+    width: 25vw;
+    min-width: 305px;
+}
+#listOutput {
+    
+    width: 25vw;
+    min-width: 305px;
+}
+
+.eventscard input {
+    width: 300px;
+    height: 100px;
+}
+
+#submitbutton {
+    height: 30px;
+    width: 80px;
+}
+
+.eventscard>ul>li>input{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
