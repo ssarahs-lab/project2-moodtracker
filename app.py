@@ -88,7 +88,7 @@ def add_mood_items():
 
     username = session.get('username')
 
-    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_CRIMSON_URL','dbname = moodtracker')
+    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_AMBER_URL','dbname = moodtracker')
 
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
@@ -111,7 +111,7 @@ def add_mood_items():
 
     print(emotions)
    
-    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_CRIMSON_URL','dbname = moodtracker')
+    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_AMBER_URL','dbname = moodtracker')
 
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
@@ -140,7 +140,7 @@ def login_action():
     email= request.form.get('email')
     password = request.form.get('password')
     
-    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_CRIMSON_URL','dbname = moodtracker')
+    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_AMBER_URL','dbname = moodtracker')
 
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
@@ -183,7 +183,7 @@ def signup():
 
     password_hashed = bcrypt.hashpw(password.encode(),bcrypt.gensalt()).decode()
 
-    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_CRIMSON_URL','dbname = moodtracker')
+    DATABASE_URL=os.environ.get('HEROKU_POSTGRESQL_AMBER_URL','dbname = moodtracker')
 
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
