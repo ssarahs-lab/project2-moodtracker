@@ -73,7 +73,7 @@ def moodlog():
 
     emotions = [feeling.replace('"',' ') for feeling in emotions_fromsql]
 
-    print(emotions)
+
 
     return render_template('moodlog.html', names = names, mood_rating = mood_rating, diet_rating = diet_rating, sleep_rating = sleep_rating, length = length, created_on = created_on,emotions = emotions, username = session.get('username'))
 
