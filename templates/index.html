@@ -9,9 +9,10 @@
             <h3>How are you feeling?</h3>
             <h4>(0 for Terrible, 10 for Great)</h4>
             <li>Mood rating <input name="mood_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"required> <output>5</output></li>
+            <li>Diet rating <input name="diet_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"required> <output>5</output></li>
             
             <li>Sleep rating <input name="sleep_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"required> <output>5</output></li>
-            <li>Diet rating <input name="diet_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"required> <output>5</output></li>
+            
    
             <li><h4>Tick all emotions that apply:</h4></li>
                 <!-- <dialog id="emotionWheel">
@@ -21,104 +22,22 @@
                     <button id="hide">Close</button>  
                 </dialog>  
                 <button id="show" onclick="dialog()">?</button>   -->
+              <div class="container"> 
+                <h3>Sad</h3>
+            <div id="listOutput"></div>
+            <h3>Fear</h3>
+            <div id="listOutput1"></div>
+            <h3>Anger</h3>
+            <div id="listOutput2"></div>
+            <h3>Joy</h3>
+            <div id="listOutput3"></div>
+            <h3>Powerful</h3>
+            <div id="listOutput4"></div>
+            <h3>Peaceful</h3>
+            <div id="listOutput5"></div>
+
+        </div>
                 
-
-            <div class="anger"><h3>Anger</h3>
-                
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Rage">Rage</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Hate">Hate</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Hostile">Hostile</label><br>
-               
-                    <label for="emotions"> <input type="checkbox" name="emotions" value="Exasperated">Exasperated</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Agitated">Agitated</label><br>
-                   
-                    <label for="emotions"> <input type="checkbox" name="emotions" value="Frustrated">Frustrated</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Irritable">Irritable</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Annoyed">Annoyed</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Aggravated">Aggravated</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Envy">Envy</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Resentful">Resentful</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Jealous">Jealous</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Disgust">Disgust</label><br></div>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Contempt">Contempt</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Revolted">Revolted</label><br>
-
-            <div class="Sadness"><h3>Sadness</h3>
-
-               
-                <label for="emotions"> <input type="checkbox" name="emotions" value="Suffering">Suffering</label><br></div>
-               
-                    <label for="emotions"> <input type="checkbox" name="emotions" value="Agony">Agony</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Hurt">Hurt</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Sadness">Sadness</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Depressed">Depressed</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Sorrow">Sorrow</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Disappointed">Disappointed</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Dismayed">Dismayed</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Displeased">Displeased</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Shameful">Shameful</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Regretful">Regretful</label><br>
-                    
-                    <label for="emotions"><input type="checkbox" name="emotions" value="Guilty">Guilty</label><br>
-                    <input type="checkbox" name="emotions" value="Neglected">
-                    <label for="emotions">Neglected</label><br>
-                    <input type="checkbox" name="emotions" value="Isolated">
-                    <label for="emotions">Isolated</label><br>
-                    <input type="checkbox" name="emotions" value="Lonely">
-                    <label for="emotions">Lonely</label><br>
-                    <input type="checkbox" name="emotions" value="Despair">
-                    <label for="emotions">Despair</label><br>
-                    <input type="checkbox" name="emotions" value="Grief">
-                    <label for="emotions">Grief</label><br>
-                    <input type="checkbox" name="emotions" value="Powerless">
-                    <label for="emotions">Powerless</label><br>
-                    <input type="checkbox" name="emotions" value="Stunned">
-                    <label for="emotions">Stunned</label><br>
-                    <input type="checkbox" name="emotions" value="Shocked>
-                    <label for="emotions">Shocked</label><br>
-                    <input type="checkbox" name="emotions" value="Dismayed">
-                    <label for="emotions">Dismayed</label><br>
-                    <input type="checkbox" name="emotions" value="Confused">
-                    <label for="emotions">Confused</label><br>
-
-                    <input type="checkbox" name="emotions" value="Disillusioned">
-                    <label for="emotions">Disillusioned</label><br>
-                    <input type="checkbox" name="emotions" value="Perplexed">
-                    <label for="emotions">Perplexed</label><br>
-                    <input type="checkbox" name="emotions" value="Dismayed" >
-                    <label for="emotions">Dismayed</label><br>
-            
-                <div> <h3>Surprise</h3></div>
-            <div><h3>Joy</h3></div>
-            <div><h3>Love</h3></div>
-            <div> <h3>Fear</h3></div>
-            
-            
-           
-
-            
-            
            
            
             <li>Future events elevating mood <input type="text"></li>

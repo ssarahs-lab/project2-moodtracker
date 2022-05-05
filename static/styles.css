@@ -98,3 +98,15 @@ label {
 #welcome {
     margin-top: 5px;
 }
+
+.listElement input {
+    display: inline-block;
+}
+
+.listElement label {
+    display: inline-block;
+}
+
+.container {
+    display: grid;
+}

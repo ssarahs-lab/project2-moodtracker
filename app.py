@@ -1,5 +1,6 @@
 from logging.handlers import RotatingFileHandler
 from time import sleep
+from unittest import result
 from venv import create
 import psycopg2
 from flask import Flask, render_template, request, redirect, session
@@ -24,32 +25,54 @@ def moodlog():
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
 
+    # find the user_id in the table, based on the username
     cur.execute('SELECT user_id FROM users where username = %s', [username])
-    user_id = cur.fetchone()
+    result = cur.fetchone()
 
-    print(f'userid {user_id}')
+    if result == None:
+    
+        return render_template('error.html')
 
-    cur.execute('SELECT  mood_rating, diet_rating, sleep_rating, created_on::timestamp FROM moods_diet_sleep where id = %s ORDER BY created_on DESC;', [user_id])
+    else:
+
+        user_id =result[0]
+
+    # find the moodlog of user, based on userid
+    cur.execute('SELECT  name, mood_rating, diet_rating, sleep_rating, created_on::timestamp FROM moods_diet_sleep where id = %s ORDER BY created_on DESC;', [user_id])
     results = cur.fetchall()
 
+    print(f'results {results}')
     names = []
     mood_rating = []
     diet_rating = []
     sleep_rating = []
     created_on = []
 
-  
-
     for column in results: 
-
-        mood_rating.append(column[0])
-        diet_rating.append(column[1])
-        sleep_rating.append(column[2])
-        created_on.append(column[3])
+        
+        names.append(column[0])
+        mood_rating.append(column[1])
+        diet_rating.append(column[2])
+        sleep_rating.append(column[3])
+        created_on.append(column[4])
 
     length = len(names)
 
-    return render_template('moodlog.html', names = names, mood_rating = mood_rating, diet_rating = diet_rating, sleep_rating= sleep_rating, length = length, created_on = created_on,username = session.get('username'))
+    print(f'mood_rating{mood_rating}')
+    print(f'created_on{created_on}')
+
+    cur.execute("SELECT  trim(emotions::text, '{{}}') FROM moods where id = %s ORDER BY created_on DESC;", [user_id])
+    mood_results = cur.fetchall()
+    emotions = []
+
+    for moodcolumn in mood_results:
+
+        emotions.append(moodcolumn[0])
+
+    print(emotions)
+
+    
+    return render_template('moodlog.html', names = names, mood_rating = mood_rating, diet_rating = diet_rating, sleep_rating = sleep_rating, length = length, created_on = created_on,emotions = emotions, username = session.get('username'))
 
 @app.route('/')
 def index():
@@ -60,6 +83,8 @@ def index():
 
 @app.route('/add_mood_items',  methods=['POST'])
 def add_mood_items():
+
+
 
     username = session.get('username')
 
@@ -90,12 +115,12 @@ def add_mood_items():
 
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
-    cur.execute('INSERT INTO moods_diet_sleep(mood_rating, diet_rating, sleep_rating) VALUES(%s, %s, %s)', [ mood_rating, diet_rating, sleep_rating])
+    cur.execute('INSERT INTO moods_diet_sleep(id, mood_rating, diet_rating, sleep_rating) VALUES(%s, %s, %s, %s)', [ user_id, mood_rating, diet_rating, sleep_rating])
 
     conn.commit()
     
 
-    cur.execute('INSERT INTO moods(mood_rating, emotions) VALUES(%s, %s)', [mood_rating, emotions])
+    cur.execute('INSERT INTO moods(id, mood_rating, emotions) VALUES(%s, %s, %s)', [user_id, mood_rating, emotions])
 
     conn.commit()
     conn.close()

@@ -25,13 +25,15 @@ created_on TIMESTAMP NOT NULL DEFAULT NOW()
 CREATE TABLE diet (
 id INTEGER REFERENCES users(user_id),
 diet_rating INTEGER,
-food_items VARCHAR(255)
+food_items VARCHAR(255),
+created_on TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE moods (
 id INTEGER REFERENCES users(user_id),
 mood_rating INTEGER,
-emotions VARCHAR(255)
+emotions VARCHAR(255),
+created_on TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 
