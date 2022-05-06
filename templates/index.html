@@ -13,37 +13,42 @@
             
             <li>Sleep rating <input name="sleep_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"required> <output>5</output></li>
             
-  
-            <li><h4>Tick all emotions that apply:</h4></li>
-             
-                <h3>Sad</h3>
-            <div id="listOutput"></div>
-            <h3>Fear</h3>
-            <div id="listOutput1"></div>
-            <h3>Anger</h3>
-            <div id="listOutput2"></div>
-            <h3>Joy</h3>
-            <div id="listOutput3"></div>
-            <h3>Powerful</h3>
-            <div id="listOutput4"></div>
-            <h3>Peaceful</h3>
-            <div id="listOutput5"></div>
-
-      
-        
-            <li>Past activities elevating mood now <input type="text" name = "past_excitement"></li>
-            <li>Past stressors lowering mood now <input type="text" name = "past_stressors"></li>
-           
-            <li>Future events elevating mood <input type="text" name= "future_excitement" width="300px"></li>
-            <li>Future events lowering mood <input type="text" name = "future_stressors "></li>
-            <li>What did you eat today? <input type="text" name = "future_stressors "></li>
+            </ul>
+            <ul>
+            <h4>Tick all emotions that apply:</h4>
+        </ul>
+            <ul class="common-list">
             
-            <li>Additional comments<input type="text" name="other_comments"></li>
+             
+                  
+                    <div id="listOutput"></div>
+                    
+                    <div id="listOutput1"></div>
+                    
+                    <div id="listOutput2"></div>
+                    
+                    <div id="listOutput3"></div>
+                   
+                    <div id="listOutput4"></div>
+                   
+                    <div id="listOutput5"></div>
+
+                </ul>
+                <ul>
+        
+            <!-- <li class="events">Past activities elevating mood now <input type="text" name = "past_excitement"></li>
+            <li class="events">Past stressors lowering mood now <input type="text" name = "past_stressors"></li>
+           
+            <li class="events">Future events elevating mood <input type="text" name= "future_excitement" width="300px"></li>
+            <li class="events">Future events lowering mood <input type="text" name = "future_stressors"></li>
+            <li class="events">What did you eat today? <input type="text" name = "foods"></li>
+            
+            <li class="events">Additional comments<input type="text" name="other_comments"></li> -->
 
             
             <input type="submit" name="submit" id="submitbutton">
 
-            </ul>
+                </ul>
         </div>
         </form>
     </div>

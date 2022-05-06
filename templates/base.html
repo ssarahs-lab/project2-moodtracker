@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
     <title>Mood tracker</title>
-    <link rel="shortcut icon" type="image/jpg" href="/static/light-bulb.png"/>
+    <link rel="shortcut icon" type="image/jpg" href="/static/lightbulb.png"/>
     <script defer src="static/script.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body >
-    <header><nav>
-        <h1>Mood Tracker</h1>
+    <header>
+        
         <div class="header">
        
         <ul>
+          <h1 style="margin-left: 40px; margin-top: 24px;">Mood Tracker</h1>
             <li><a href="/" class="nav-bar-link"><img class="icon" src="static/home.svg">Home</a></li>
           
             <li><a href="/moodlog"><img class="icon" src="static/time-past.svg">Mood history</a></li>
@@ -35,13 +37,13 @@
         
         </ul>
     </div>
-    </nav></header>
+    </header>
 
     <div class="body" >
 
     {% block content %}{% endblock %}
-    <p>Made by Sarah S, 2022</p>
-    <a href="https://www.flaticon.com/free-icons/brain" title="brain icons">Brain icons created by Freepik - Flaticon</a>
+    <p style="margin-left: 57px;">Made by Sarah S, 2022</p>
+    
 </div>
 </body>
 </html>

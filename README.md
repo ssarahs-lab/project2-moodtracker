@@ -1,16 +1,71 @@
-# project2
+## Mood Tracker: a user stores their story
 
-- Add `.DS_Store` to the `.gitignore` file
-- The project is a "Caption This" website when a user can enter in a suggested caption, have it displayed on the page, and upvote other various caption, on an image
+A user wants to track their mood to know what variables affect it, and use it to find out what correlates with mood. 
+This may include: 
+- Diet  
+- Exercise  
+- Sleep  
+- Past stressors bothering them now  
+- Future stressors bothering them now  
+- Past activities elevating their mood  
+- Future scheduled activities elevating their mood  
+- User-added variables
+- Thinking styles that affect their mood
 
-- add, commit and push
+This tracker would help a user understand themselves better, and increase self awareness / emotional intelligence and the causes behind a high mood or low mood. They can then adjust their lifestyle based on this data
 
-Connect database with Heroku
-heroku psql
+# Things included in this version:
 
-reset database
-heroku pg:reset
+Create a table for user profiles  
 
-copy local database to heroku
-heroku pg:push moodtracker DATABASE_URL
+-   Sign up page
+-   Login page
 
+Create database for moodtracker  
+-  1 table for moods
+-  Print tracked moods onto page - with time and date?
+
+-   Mood tracker form
+
+-   Links into database
+
+
+
+
+Join tables
+
+-   Side panel displaying
+
+# To be included in future versions:
+
+   “Day with the highest mood”, like a high score factor
+
+-   What they ate, exercised, how much they slept
+-   Special activities
+
+-   Main panel displaying mood on a graph - think "data is beautiful" styles
+
+  
+
+# Instructions for installing
+
+ Add `.DS_Store` to the `.gitignore` file.
+
+
+  
+
+Add, commit and push as per usual. 
+
+  
+
+Connect database with Heroku:
+
+    heroku psql
+
+  Reset database:
+
+    heroku pg:reset
+    
+Copy local database to Heroku:
+
+    heroku pg:push moodtracker DATABASE_URL
