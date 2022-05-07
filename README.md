@@ -1,4 +1,4 @@
-## Mood Tracker: a user stores their story
+## Mood Tracker: a user writes their story
 
 
 Live site: [Mood Tracker app](https://hidden-tundra-11775.herokuapp.com/)
