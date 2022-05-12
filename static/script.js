@@ -83,12 +83,14 @@ let peacefulList = ['peaceful ',
 'thankful ',
 ]
 
-listOutput = document.getElementById("listOutput")
+let unhelpingThinkingPatterns = ["magnification/minimisation", "catastrophizing", "overgeneralisation", "jumping to conclusions", "personalisation", "mindreading", "fortune telling (predicting the future)", "disqualifying the positive (\"mental filter\")", "emotional reasoning", "\"should\" statements", "labeling", "black & white / all-or-nothing thinking"]
+let definitionOfPatterns = ["test"]
 listOutput1 = document.getElementById("listOutput1")
 listOutput2 = document.getElementById("listOutput2")
 listOutput3 = document.getElementById("listOutput3")
 listOutput4 = document.getElementById("listOutput4")
 listOutput5 = document.getElementById("listOutput5")
+listOutput6 = document.getElementById("listOutput6")
 
 //function to print Bandlist
 function printSadList() {
@@ -290,6 +292,40 @@ function printPeacefulList() {
 
 }
 
+function printThinkingPatternsList() {
+    listOutput6.innerHTML = "";
+
+    for (const pattern of unhelpingThinkingPatterns) {
+
+        let checkbox = document.createElement("INPUT");
+        checkbox.setAttribute("type", "checkbox");
+        
+        let label = document.createElement('label');
+
+        //variable called element that makes a new list item
+        let listElement = document.createElement('li');
+        
+        //the checkbox text content is every item in this for-loop
+        label.innerHTML = pattern;
+
+        //give every element a class of emotion
+        listElement.classList.add('emotions', 'listElement');
+        checkbox.name = 'emotions';
+        checkbox.value = pattern;
+       
+
+        //append the new bandName into the listOutput div
+        listOutput6.appendChild(listElement);
+        listElement.appendChild(checkbox);
+        listElement.appendChild(label);
+        
+        
+
+    }
+
+}
+
+
 
 printSadList();
 printFearList();
@@ -297,3 +333,4 @@ printAngerList();
 printJoyList();
 printPowerfulList();
 printPeacefulList();
+printThinkingPatternsList();

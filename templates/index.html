@@ -6,6 +6,7 @@
     <div class="moodform" > 
         <form method ="POST" action="/add_mood_items">
             <ul>
+               
             <h3>How are you feeling?</h3>
             <h4>(0 for Terrible, 10 for Great)</h4>
             <li>Mood rating <input name="mood_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"required> <output>5</output></li>
@@ -15,10 +16,13 @@
             
             </ul>
             <ul>
-            <h4>Tick all emotions that apply:</h4>
+            <h3>Associated emotions <button  id="toggleEmotionsButton" >Show</button></h3>
         </ul>
-            <ul class="common-list">
+        
+       <ul> <h4>Check all that apply: </h4></ul>
+            <ul class="common-list"">
             
+                
              
                   
                     <div id="listOutput"></div>
@@ -35,17 +39,29 @@
 
                 </ul>
                 <ul>
-        
-            <!-- <li class="events">Past activities elevating mood now <input type="text" name = "past_excitement"></li>
-            <li class="events">Past stressors lowering mood now <input type="text" name = "past_stressors"></li>
-           
-            <li class="events">Future events elevating mood <input type="text" name= "future_excitement" width="300px"></li>
-            <li class="events">Future events lowering mood <input type="text" name = "future_stressors"></li>
-            <li class="events">What did you eat today? <input type="text" name = "foods"></li>
-            
-            <li class="events">Additional comments<input type="text" name="other_comments"></li> -->
+               
+            <h3> Thought Habits </h3>
+            <h4>Did you notice any of these thought habits? </h4>
+                <h4>Tick all patterns that apply:</h4>
+            <div id="listOutput6"></div>
+            <li class="events">List any past activities that are elevating your mood now. </li>
+            <textarea rows="4" cols="50" name = "past_excitement"></textarea>
+            <li class="events">List any past stressors that are lowering your mood now. </li>
+            <textarea rows="4" cols="50" name = "past_stressors"></textarea>
+            <li class="events">List any future events that are elevating your mood now. </li>
+            <textarea rows="4" cols="50" name = "future_excitement"></textarea>
+            <li class="events">List any future events that are lowering mood now. </li>
+            <textarea rows="4" cols="50" name = "future_stressors"></textarea>
+
+
+            <h3>Dietary Habits</h3>
+            <h4>What did you eat today?</h4>
 
             
+            
+            <li class="events">Any additional comments?</li> 
+            <textarea rows="4" cols="50" name = "other_comments"></textarea>
+             
             <input type="submit" name="submit" id="submitbutton">
 
                 </ul>

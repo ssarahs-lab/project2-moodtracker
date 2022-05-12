@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+
+    <div id="container" style="width:100%; height:400px;"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const chart = Highcharts.chart('container', {
+            plotOptions: {
+                type: 'line'
+            },
+            title: {
+                text: 'Mood, Diet and Sleep over time'
+            },
+            xAxis: {
+        type: 'datetime'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: Date.UTC(2020, 0, 1),
+            pointInterval: 36e5, // one hour
+            relativeXValue: true
+        },
+        
+    },
+
+            yAxis: {
+                title: {
+                    text: 'Rating out of 10'
+                }
+            },
+            series: [{
+                name: 'Mood',
+                data: {{mood_rating}}
+            }, {
+                name: 'Diet',
+                data: {{diet_rating}}
+            }, {
+                name: 'Sleep',
+                data: {{sleep_rating}}
+            }
+          ]
+        });
+    });
+    </script>
+
+{% endblock %}
