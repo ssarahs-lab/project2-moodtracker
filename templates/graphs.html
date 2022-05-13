@@ -6,25 +6,11 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const chart = Highcharts.chart('container', {
-            plotOptions: {
-                type: 'line'
-            },
+          
             title: {
                 text: 'Mood, Diet and Sleep over time'
             },
-            xAxis: {
-        type: 'datetime'
-    },
-
-    plotOptions: {
-        series: {
-            pointStart: Date.UTC(2020, 0, 1),
-            pointInterval: 36e5, // one hour
-            relativeXValue: true
-        },
         
-    },
-
             yAxis: {
                 title: {
                     text: 'Rating out of 10'
@@ -39,10 +25,28 @@
             }, {
                 name: 'Sleep',
                 data: {{sleep_rating}}
+            }],
+          xAxis: {
+            // convert timestamp from PSQL to epoch time in milliseconds
+            categories: [{% for i in range(length) %}
+    
+    
+    {{created_on[i]}}*1000,
+   
+   
+   
+    {% endfor %}
+    ],
+            labels: {
+                format: '{value:%e %b %H:%M:%S}'
             }
-          ]
+          }
+        
         });
     });
     </script>
-
+ 
+ 
+ 
+ 
 {% endblock %}

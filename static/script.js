@@ -276,7 +276,7 @@ function printPeacefulList() {
         label.innerHTML = feeling;
 
         //give every element a class of emotion
-        listElement.classList.add('emotions', 'listElement');
+        listElement.classList.add('emotions', 'listElement', );
         checkbox.name = 'emotions';
         checkbox.value = feeling;
        

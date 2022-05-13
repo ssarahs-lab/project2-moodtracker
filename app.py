@@ -170,7 +170,7 @@ def moodlog():
         user_id =result[0]
 
     # find the moodlog of user, based on userid
-    cur.execute('SELECT  name, mood_rating, diet_rating, sleep_rating, created_on::timestamp FROM moods_diet_sleep where id = %s ORDER BY created_on DESC;', [user_id])
+    cur.execute("SELECT  name, mood_rating, diet_rating, sleep_rating, date_trunc('minute',created_on) FROM moods_diet_sleep where id = %s ORDER BY created_on DESC;", [user_id])
     results = cur.fetchall()
 
     print(f'results {results}')
@@ -230,7 +230,7 @@ def graphs():
         user_id =result[0]
 
     # find the moodlog of user, based on userid
-    cur.execute('SELECT  name, mood_rating, diet_rating, sleep_rating, created_on::timestamp FROM moods_diet_sleep where id = %s ORDER BY created_on DESC;', [user_id])
+    cur.execute("SELECT  name, mood_rating, diet_rating, sleep_rating, extract(EPOCH FROM created_on) FROM moods_diet_sleep where id = %s ORDER BY created_on ASC;", [user_id])
     results = cur.fetchall()
 
     print(f'results {results}')
