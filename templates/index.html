@@ -15,8 +15,13 @@
             <li>Sleep rating <input name="sleep_rating" value = 5 type="range" min="1" max="10"oninput="this.nextElementSibling.value = this.value"required> <output>5</output></li>
             
             </ul>
+<ul>
+            <li class="events"><h3>Add a journal entry here</h3></li>
+            <li><h4>(including as little or as much as you like)</h4></li>
+            <textarea rows="7" cols="58" name = "journal_entry"></textarea>
+        </ul>
             <ul>
-            <h3>Associated emotions <button  id="toggleEmotionsButton" >Show</button></h3>
+            <h3>Associated emotions</h3>
         </ul>
         
        <ul> <h4>Check all that apply: </h4></ul>
@@ -56,7 +61,7 @@
 
             <h3>Dietary Habits</h3>
             <h4>What did you eat today?</h4>
-
+            <textarea rows="4" cols="50" name = "dietary_habits"></textarea>
             
             
             <li class="events">Any additional comments?</li> 

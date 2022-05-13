@@ -144,7 +144,7 @@ def add_mood_items():
     conn.commit()
     conn.close()
 
-    return redirect('/')
+    return redirect('/moodlog')
 
 @app.route('/moodlog')
 def moodlog():

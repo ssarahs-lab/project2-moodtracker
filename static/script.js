@@ -309,7 +309,7 @@ function printThinkingPatternsList() {
         label.innerHTML = pattern;
 
         //give every element a class of emotion
-        listElement.classList.add('emotions', 'listElement');
+        listElement.classList.add('thought_patterns', 'listElement');
         checkbox.name = 'emotions';
         checkbox.value = pattern;
        
