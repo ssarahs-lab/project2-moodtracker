@@ -39,6 +39,11 @@ This tracker would help a user understand themselves better, and increase self a
 
 ![enter image description here](https://i.imgur.com/WMqnnMO.gif)
 
+- Mood history visualised in graph
+
+![enter image description here](https://i.imgur.com/npxAGRv.gif)
+
+
 ## Instructions for installing
 
  Add `.DS_Store` to the `.gitignore` file.
