@@ -3,6 +3,8 @@
 
 Live site: [Mood Tracker app](https://moodtracker.onrender.com/)
 
+! Note the live site is currently being migrated from Heroku to Render, hence some bugs might appear and require ironing out, bare with me ;)
+
 
 
 A user wants to track their mood to know what variables affect it, and use it to find out what correlates with mood. 
