@@ -3,7 +3,7 @@
 
 Live site: [Mood Tracker app](https://moodtracker.onrender.com/)
 
-! Note the live site is currently being migrated from Heroku to Render, hence some bugs might appear and require ironing out, bare with me ;)
+*Note the live site is currently being migrated from Heroku to Render, hence some bugs might appear and require ironing out, bear with me ;)*
 
 
 
