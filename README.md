@@ -91,5 +91,13 @@ Copy local database to Heroku:
 -   Events that have occurred in the day of the user
 -   Main panel displaying mood and lifestyle variables on graphs - think "data is beautiful" styles
 
+## Issues to work on:
+
+- Deployment issues with Heroku, potential move to fly.io (?)
+- Improve security measures for users, 
+  1. auth0
+  2. add validation measures to backend
+- Form needs a better flow
+- Make it responsive, i.e. mobile friendly
 
   
