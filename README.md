@@ -93,7 +93,7 @@ Copy local database to Heroku:
 
 ## Issues to work on:
 
-- Deployment issues with Heroku, potential move to fly.io (?)
+- Deployment issues with Heroku, page load takes a while on Render, to be investigated; potential move to fly.io (?)
 - Improve security measures for users, 
   1. auth0
   2. add validation measures to backend
